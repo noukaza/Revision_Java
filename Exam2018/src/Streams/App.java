@@ -1,5 +1,6 @@
 package Streams;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -10,11 +11,7 @@ import java.util.stream.Stream;
 public class App {
 	
 	
-	public static void main(String[] args) {
-		
-		
-		
-	}
+	
 	
 	public List<City> VillesMoinsHab(Stream<City> citys)
 	{
@@ -31,15 +28,21 @@ public class App {
 		return per.flatMap(p->p.getVisited().stream()).collect(Collectors.toSet());
 	}
 	
-/*	public Set<Person> visiteHabite(Stream<Person> per )
+	public static Set<Person> visiteHabite(Stream<Person> per )
 	{
-		
-	}*/
+		return per.filter(p->p.getVisited()
+				.stream()
+				.filter(m->m.getLocation().getInhabitants().contains(p))
+				.count()>0)
+				.collect(Collectors.toSet());
+	}
 	
 	public Map<Integer,List<Person>> PersonePerMonument(Stream<Person> per)
 	{
 		return per.collect(Collectors.groupingBy(p->p.getVisited().size()));
 	}
+	
+
 	
 
 }
