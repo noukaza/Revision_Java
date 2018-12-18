@@ -31,11 +31,10 @@ public class App {
 		return per.flatMap(p->p.getVisited().stream()).collect(Collectors.toSet());
 	}
 	
-	public Set<Person> visiteHabite(Stream<Person> per )
+/*	public Set<Person> visiteHabite(Stream<Person> per )
 	{
-		return per.flatMap(p->p.getVisited().stream()).map(m->m.getLocation()).flatMap(c->c.getInhabitants().stream()).collect(Collectors.toSet());
 		
-	}
+	}*/
 	
 	public Map<Integer,List<Person>> PersonePerMonument(Stream<Person> per)
 	{
