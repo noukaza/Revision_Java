@@ -20,7 +20,8 @@ public class App {
 	
 	public Optional<Monument> MonumentVieux(Stream<Monument> mon)
 	{
-		return mon.reduce((m1,m2)->m1.getAge()<m2.getAge()?m1:m2);
+		return mon.max((x,y)->x.setAge()-y.getAge());
+		//return mon.reduce((m1,m2)->m1.getAge()<m2.getAge()?m1:m2);
 	}
 	
 	public Set<Monument> MonumentVisite(Stream<Person> per)
