@@ -37,11 +37,11 @@ public class app {
 	//une méthode qui prend en argument une liste l de Supplier et qui renvoie la liste qui
 	//contient, pour chaque element s de l, les trois premiers éléments produits par s ;
 
-	public <T> List<T> question2(List<Supplier<? extends T>> l)
+	public <T> List<T> question2(List<? extends Supplier<T>> l)
 	{
 
 		List<T> newlist = new ArrayList<T>();
-		for (Supplier<? extends T> s: l)
+		for (Supplier<T> s: l)
 		{
 			newlist.add(s.get());
 			newlist.add(s.get());
@@ -55,7 +55,7 @@ public class app {
 	//est "bonne" si elle contient e. La méthode doit renvoyer l'ensemble de tous les éléments
 	//qui appartiennent à au moins une bonne liste de l.
 
-	public <T> List<T> question3(List<? extends List<? extends T>> l,  T e)
+	public <T,E extends T> List<T> question3(List<? extends T>> l,  E e)
 	{
 		List<T> newlist = new ArrayList<>();
 
@@ -102,7 +102,7 @@ public class app {
 	//une méthode qui prend en entrée une Collection c de List et qui renvoie une List qui
 	//contient tous les éléments qui apparaissent dans toutes les listes de c ;
 
-	public static <T> List<T> includeLists(Collection<List<? extends T>> c)
+	public static <T> List<T> includeLists(Collection<? extends List<T>> c)
 	{
 		List<T> ll = new ArrayList<>();
 
